@@ -1,3 +1,3 @@
 # Dorema's Place
 
-A simple online store is that gives users the capability of selecting a product to purchase, viewing purchase information, adding it to an online shopping cart, and finally, purchasing the products in the shopping cart.
+A simple children's clothing online store that gives users the ability to select a product to purchase, view purchase information, add product to shopping cart, and finally, purchase the products in the shopping cart.
