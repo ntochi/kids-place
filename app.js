@@ -5,7 +5,10 @@ const bodyParser = require("body-parser"),
       app        = express();
 
 
-const indexRoutes = require("./routes/index");
+const indexRoutes = require("./routes/index"),
+      shopRoutes = require("./routes/shop"),
+      boyRoutes = require("./routes/boys"),
+      girlRoutes = require("./routes/girls");
 
 
 
@@ -20,6 +23,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //Routes configuration
 app.use(indexRoutes);
+app.use(shopRoutes);
+app.use(boyRoutes);
+app.use(girlRoutes);
 
 
 
