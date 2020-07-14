@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 
-//INDEX: show all items
+// INDEX: show all items
 router.get("/girls", function (req, res){
     res.render("girl");
 });
