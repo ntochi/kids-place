@@ -1,24 +1,21 @@
 <%- include('../partials/header') %>
 
 <div class="container mx-auto px-6 py-2">
+    <!-- ! Card display starts here -->
     <div class="md:flex flex-wrap">
-        <!-- ! Card display starts here -->
-        <!-- * Loop through products card -->
+        <!-- Loop through products card -->
         <% product.forEach(function(product){ %>
             <div class="flex flex-col justify-center items-center max-w-sm mx-auto my-8">
                 <div class="bg-gray-300 h-64 w-full rounded-lg shadow-md bg-cover bg-center" 
                 style="background-image: url(<%= product.image %>)"></div>
 
                 <div class="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
-                    <h3 class="py-2 text-center font-bold capitalize tracking-wide text-gray-800">
+
+                    <a class="block py-2 text-center font-bold capitalize tracking-wide text-gray-800 hover:text-gray-600 hover:underline" href="shop/<%= product._id %> ">
                         <%= product.title %>
-                    </h3>
+                    </a>
 
-                    <p class="p-2 text-gray-600">
-                        <%= product.description %> 
-                    </p>
-
-                    <div class="flex items-center justify-between py-2 px-3 bg-gray-200">
+                    <div class="flex items-center justify-between py-4 px-3 bg-gray-200">
                         <span class="text-gray-800 font-bold ">
                             <%= product.price %> 
                         </span>
@@ -30,8 +27,36 @@
                 </div>
             </div>    
         <% }); %>
-        
     </div>
+    <!-- ! Card display ends here -->
+
+    
+    <ul class="flex items-center justify-center m-4">
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-500 rounded-lg">
+            <a href="#" class="flex items-center font-bold cursor-not-allowed">
+                <span class="mx-1">previous</span>
+            </a>
+        </li>
+
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+            <a href="#" class="font-bold">1</a>
+        </li>
+
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+            <a href="#" class="font-bold">2</a>
+        </li>
+
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+            <a href="#" class="font-bold">3</a>
+        </li>
+        
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+            <a href="#" class="flex items-center font-bold">
+                <span class="mx-1">Next</span>
+            </a>
+        </li>
+    </ul>
+
 </div>
 
 <%- include('../partials/footer') %>
