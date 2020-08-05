@@ -1,9 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const Product = require('../models/product');
 
-//INDEX: display a list of all products
+// INDEX: display a list of all products
 router.get("/shop", function (req, res){
-    res.render("products/index");
+    // Get all products from database
+    Product.find({}, function(err, allProducts){
+        if (err) {
+            console.log(err);
+        } else {
+			res.render("products/index", {product: allProducts});
+        }
+    })
 });
 
 
