@@ -1,30 +1,85 @@
 <%- include('../partials/header') %>
 
-<!-- TODO: Flex column like Toora -->
-<!-- TODO: Add details segment -->
-<!-- TODO: Add clothe size card -->
+<!-- TODO: Add size tooltip info -->
 
-<div class="max-w-2xl mx-auto m-5 bg-white overflow-hidden shadow-md rounded-lg">
-    <img class="w-full h-64 object-contain" src="<%= product.image %> " alt="Images of children">
+<div class="lg:flex lg:max-w-5xl lg:py-12 mt-5 mx-auto bg-white overflow-hidden shadow-md rounded-lg">
+    <!-- Image -->
+    <div class="lg:w-2/5 p-5">        
+        <img class="lg:h-auto lg:w-full lg:rounded-lg h-screen max-w-3xl mx-auto object-cover" src="<%= product.image %> " alt="Images of children">
+    </div>
 
-    <div class="p-6">
+    <!-- Product Details -->
+    <div class="lg:w-3/5 lg:px-5 p-5">
+        <!-- Title & description -->
         <div>
-            <h3 class="mt-2 text-gray-800 font-semibold text-2xl">
+            <h3 class="text-gray-800 font-semibold text-2xl">
                 <%= product.title %> 
             </h3>
 
-            <p class="text-sm text-gray-600 mt-2">
+            <p class="mt-2 max-w-3xl text-sm text-gray-600 text-justify">
                 <%= product.description %> 
             </p>
         </div>
 
-        <div class="flex items-center justify-between mt-4 py-2 px-3 bg-gray-200 text-base">
+        <!-- Size chart -->
+        <div>
+            <h3 class="my-4 text-gray-800 font-semibold text-lg">Size</h3>
+
+            <ul class="flex text-center">    
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">3-6</a>
+                </li>
+        
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">6-9</a>
+                </li>
+        
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">9-12</a>
+                </li>
+    
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">12-18</a>
+                </li>
+    
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">18-24</a>
+                </li>
+    
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">2T</a>
+                </li>
+    
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">3T</a>
+                </li>
+    
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                    <a href="#" class="font-bold">4T</a>
+                </li>
+            </ul>    
+        </div>
+
+        <!-- Details & fit -->
+        <div class="mt-5">
+            <h3 class="text-gray-800 font-semibold text-lg">Details & Fit</h3>
+
+            <ul class="mt-2 pl-5 list-disc text-gray-600">
+                <li>47% Modal / 47% Cotton / 6% Spandex</li>
+                <li>Four-way stretch fabric with an ultra-soft feel</li>
+                <li>Functional, Comfortable, Durable</li>
+                <li>Fits true to size (see Sizing Chart for exact measurements)</li>
+            </ul>
+        </div>
+
+        <!-- Price & cart -->
+        <div class="flex items-center justify-between mt-4 py-2 px-3 bg-gray-200">
             <span class="text-gray-800 font-bold ">
                 $30
             </span>
 
-            <button class="px-2 py-1 bg-gray-800 text-white rounded uppercase font-semibold hover:bg-gray-700">
-                Add to cart
+            <button class="px-2 py-1 bg-gray-800 text-white rounded font-semibold hover:bg-gray-700">
+                Add To Cart
             </button>
         </div>
 
