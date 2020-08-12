@@ -1,15 +1,13 @@
 <%- include('../partials/header') %>
 
-<!-- TODO: Add size tooltip info -->
-
-<div class="lg:flex lg:max-w-5xl lg:py-12 mt-5 mx-auto bg-white overflow-hidden shadow-md rounded-lg">
+<div class="lg:flex lg:max-w-5xl lg:py-12 mx-auto mt-5 bg-white overflow-hidden shadow-md rounded-lg">
     <!-- Image -->
     <div class="lg:w-2/5 p-5">        
         <img class="lg:h-auto lg:w-full lg:rounded-lg h-screen max-w-3xl mx-auto object-cover" src="<%= product.image %> " alt="Images of children">
     </div>
 
     <!-- Product Details -->
-    <div class="lg:w-3/5 lg:px-5 p-5">
+    <div class="lg:w-3/5 p-5 lg:px-5">
         <!-- Title & description -->
         <div>
             <h3 class="text-gray-800 font-semibold text-2xl">
@@ -26,35 +24,35 @@
             <h3 class="my-4 text-gray-800 font-semibold text-lg">Size</h3>
 
             <ul class="flex text-center">    
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">3-6</a>
                 </li>
         
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">6-9</a>
                 </li>
         
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">9-12</a>
                 </li>
     
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">12-18</a>
                 </li>
     
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">18-24</a>
                 </li>
     
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">2T</a>
                 </li>
     
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">3T</a>
                 </li>
     
-                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+                <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
                     <a href="#" class="font-bold">4T</a>
                 </li>
             </ul>    
@@ -78,12 +76,55 @@
                 $30
             </span>
 
-            <button class="px-2 py-1 bg-gray-800 text-white rounded font-semibold hover:bg-gray-700">
+            <button class="px-2 py-1 bg-gray-800 text-white rounded font-semibold hover:bg-red-500">
                 Add To Cart
             </button>
         </div>
 
-    </div>
+    </div>    
+</div>
+
+<!-- Comments -->
+<div class="lg:flex lg:max-w-5xl mx-auto my-5 px-5 lg:px-0 items-start">
+    <!-- TODO: Leave a review & horizontal line -->
+ 
+    <%  product.comments.forEach(comment => { %> 
+        <div>
+            <p class="flex items-baseline">
+                <span class="font-bold"><%= comment.author %> </span>
+                <span class="ml-2 text-green-600 text-xs">Verified Buyer</span>
+            </p>
+
+            <!-- Stars -->
+            <div class="flex items-center mt-2">
+                <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+                <svg class="w-4 h-4 fill-current text-yellow-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>
+            </div>
+
+            <div class="mt-3">
+                <p class="mt-1">
+                    <%= comment.text %> 
+                </p>
+            </div>
+
+            <div class="flex items-center justify-between mt-4 text-sm text-gray-600 fill-current">
+                <div class="flex items-center">
+                    <span>Was this review helplful?</span>
+                    <button class="flex items-center ml-6">
+                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 0h1v3l3 7v8a2 2 0 0 1-2 2H5c-1.1 0-2.31-.84-2.7-1.88L0 12v-2a2 2 0 0 1 2-2h7V2a2 2 0 0 1 2-2zm6 10h3v10h-3V10z"/></svg>
+                        <span class="ml-2">56</span>
+                    </button>
+                    <button class="flex items-center ml-4">
+                        <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M11 20a2 2 0 0 1-2-2v-6H2a2 2 0 0 1-2-2V8l2.3-6.12A3.11 3.11 0 0 1 5 0h8a2 2 0 0 1 2 2v8l-3 7v3h-1zm6-10V0h3v10h-3z"/></svg>
+                        <span class="ml-2">10</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    <% }); %>
 </div>
 
 <%- include('../partials/footer') %>
