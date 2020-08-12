@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Product = require('./models/product');
+const Comment = require('./models/comment');
 
 // Array of seed data model
 const productData = [
@@ -49,7 +50,7 @@ const productData = [
         description: "Jelly-o jelly toffee macaroon ice cream muffin. I love icing caramels chocolate marzipan tiramisu muffin apple pie gingerbread. Bonbon halvah jelly apple pie candy canes brownie lemon drops. Bear claw liquorice gummi bears biscuit icing cotton candy oat cake. Cupcake pastry marzipan jelly beans I love jelly beans. I love jelly chocolate cake liquorice chupa chups fruitcake I love lemon drops dessert. I love tootsie roll apple pie I love sugar plum tiramisu topping sesame snaps",
     },
     {
-        title: "Floral Swing Dress",
+        title: "Floral Swing Romper",
         price: "$30",
         image: "https://images.unsplash.com/flagged/photo-1571530765629-4efdab448a6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
         description: "Jelly-o jelly toffee macaroon ice cream muffin. I love icing caramels chocolate marzipan tiramisu muffin apple pie gingerbread. Bonbon halvah jelly apple pie candy canes brownie lemon drops. Bear claw liquorice gummi bears biscuit icing cotton candy oat cake. Cupcake pastry marzipan jelly beans I love jelly beans. I love jelly chocolate cake liquorice chupa chups fruitcake I love lemon drops dessert. I love tootsie roll apple pie I love sugar plum tiramisu topping sesame snaps",
@@ -64,20 +65,42 @@ const productData = [
 
 // Compile seed data into a function
 function seedDB(){
+    // Remove all products & comments
     Product.deleteMany({}, function(err){
         if(err){
             console.log(err)
         } else {
-            console.log("removed products!")
-            // Add a few products
-            productData.forEach(seed => {
-                Product.create(seed, function(err, product){
-                    if (err) {
-                        console.log(err)
-                    } else {
-                        console.log("added a product!")
-                    }
-                });
+            console.log("removed products!");
+            Comment.deleteMany({}, function(err){
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log("removed comments!");
+                    //Add a few products
+                    productData.forEach(seed => {
+                        Product.create(seed, function(err, product){
+                            if (err) {
+                                console.log(err)
+                            } else {
+                                console.log("added a product!")
+                                //Add a few comments
+                                Comment.create(
+                                    {
+                                        text: "My child's favourite clothing!", 
+                                        author: "Bernice"
+                                    }, function(err, comment){
+                                    if (err) {
+                                        console.log(err)
+                                    } else {
+                                        product.comments.push(comment);
+                                        product.save();
+                                        console.log("created new comment!");
+                                    }
+                                });
+                            }
+                        });
+                    });
+                }  
             });
         }
     });

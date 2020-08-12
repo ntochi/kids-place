@@ -10,22 +10,21 @@ router.get("/shop", function (req, res){
         if (err) {
             console.log(err);
         } else {
-			res.render("products/index", {product: allProducts});
+			res.render("index", {product: allProducts});
         }
     })
 });
 
 // SHOW: show more info about a product
 router.get("/shop/:id", function (req, res){
-    // Find product by ID
-    Product.findById(req.params.id, function(err, foundProduct){
+    // Find product with ID
+    Product.findById(req.params.id).populate("comments").exec(function(err, foundProduct){
         if (err) {
             console.log(err);
         } else {
-            res.render("products/show", {product: foundProduct});
+            res.render("show", {product: foundProduct});
         }
     });
-
 });
 
 
