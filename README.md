@@ -2,9 +2,9 @@
 
 A fullstack eCommerce app that gives users the ability to select a product to purchase, view purchase information, add a product to the shopping cart, and finally, purchase the products in the shopping cart.
 
-![Shop page](public/images/demo-image-2.jpg)
+![Shop page](public/images/demo-image-2.jpg?raw=true)
 
-![Product details page](public/images/demo-image.jpg)
+![Product details page](public/images/demo-image.jpg?raw=true)
 
 <!-- Project inspired by florinpop17/app-ideas of Product Landing Page & Online Store
 
