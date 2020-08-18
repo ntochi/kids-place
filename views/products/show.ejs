@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<div class="lg:flex lg:max-w-5xl lg:py-12 mx-auto mt-5 bg-white overflow-hidden shadow-md rounded-lg">
+<div class="lg:flex lg:max-w-5xl lg:py-5 mx-auto mt-5 bg-white overflow-hidden shadow-md rounded-lg">
     <!-- Image -->
     <div class="lg:w-2/5 p-5">        
         <img class="lg:h-auto lg:w-full lg:rounded-lg h-screen max-w-3xl mx-auto object-cover" src="<%= product.image %> " alt="Images of children">
@@ -59,10 +59,10 @@
         </div>
 
         <!-- Details & fit -->
-        <div class="mt-5">
+        <div class="mt-8">
             <h3 class="text-gray-800 font-semibold text-lg">Details & Fit</h3>
 
-            <ul class="mt-2 pl-5 list-disc text-gray-600">
+            <ul class="mt-4 pl-5 list-disc text-gray-600">
                 <li>47% Modal / 47% Cotton / 6% Spandex</li>
                 <li>Four-way stretch fabric with an ultra-soft feel</li>
                 <li>Functional, Comfortable, Durable</li>
@@ -71,25 +71,32 @@
         </div>
 
         <!-- Price & cart -->
-        <div class="flex items-center justify-between mt-4 py-2 px-3 bg-gray-200">
-            <span class="text-gray-800 font-bold ">
-                $30
-            </span>
+        <div class="flex items-center justify-between mt-8 py-2 px-3 bg-gray-200">
+            <span class="text-gray-800 font-bold ">$30</span>
 
-            <button class="px-2 py-1 bg-gray-800 text-white rounded font-semibold hover:bg-red-500">
-                Add To Cart
-            </button>
+            <a href="" class="mr-1 mb-1 px-4 py-2 text-white bg-red-500 border border-solid border-red-500 hover:bg-transparent hover:text-red-500 font-bold capitalize text-sm rounded-full outline-none focus:outline-none" type="button" style="transition: all .15s ease">
+                add to cart
+            </a>
         </div>
-
     </div>    
 </div>
 
 <!-- Comments -->
-<div class="lg:flex lg:max-w-5xl mx-auto my-5 px-5 lg:px-0 items-start">
-    <!-- TODO: Leave a review & horizontal line -->
- 
+<div class="lg:flex-col lg:max-w-5xl mx-auto my-5 px-5 items-start shadow-md rounded-lg bg-gray-200">
+    <div class="pt-2">
+        <h2 class="font-bold text-2xl">Reviews</h2>
+
+        <!-- Leave a comment button -->
+        <a href="/shop/<%= product._id %>/comments/new " class="float-right -mt-8 text-red-500 bg-transparent border border-solid border-red-300 hover:bg-red-400 hover:text-white font-bold capitalize text-sm px-4 py-2 rounded-full outline-none focus:outline-none" type="button" style="transition: all .15s ease">
+            leave a review
+        </a>    
+    </div>
+    
+    <hr class="border-b border-none h-3 m-0 shadow-lg">
+
+    <!-- Display comments -->
     <%  product.comments.forEach(comment => { %> 
-        <div>
+        <div class="py-4">
             <p class="flex items-baseline">
                 <span class="font-bold"><%= comment.author %> </span>
                 <span class="ml-2 text-green-600 text-xs">Verified Buyer</span>
@@ -125,6 +132,8 @@
             </div>
         </div>
     <% }); %>
+
 </div>
+
 
 <%- include('../partials/footer') %>

@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+
+<div class="flex max-w-lg mx-auto my-4">
+    <form action="/shop/<%= product._id %>/comments" method="POST" class="w-full bg-white px-3 pt-3">
+        <h4 class="text-xl font-bold text-center">Leave a review</h4>
+
+        <div class="border-b border-red-300 py-2">
+            <input class="w-full appearance-none bg-transparent border-none focus:outline-none" name="comment[author]" type="text" placeholder="Full name" aria-label="Full name" required>
+        </div>
+
+        <div class="border-b border-red-300 pt-4">
+            <textarea class="w-full appearance-none bg-transparent border-none focus:outline-none" name="comment[text]" placeholder='Did you like your purchase?' required></textarea>
+        </div>
+
+        <div class="mt-4">
+            <button class="py-1 px-4 bg-green-400 hover:bg-green-600 focus:outline-none text-white font-medium rounded-lg tracking-wide">Submit</button>
+
+            <a class="float-right text-blue-500" href="/shop/<%= product._id %> ">Go back</a>    
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>
