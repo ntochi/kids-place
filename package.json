@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "postcss public/stylesheets/app.css -o public/stylesheets/tailwind.css"
+    "build:css": "postcss public/stylesheets/app.css -o public/stylesheets/tailwind.css",
+    "purgecss": "purgecss -c purgecss.config.js -o stylesheets"
   },
   "repository": {
     "type": "git",
