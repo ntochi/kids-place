@@ -1,5 +1,6 @@
 node_modules
+
 package-lock.json
-app.css
-landing.html
-public/stylesheets/tailwind.css
+
+/public/stylesheets/tailwind.css
+
