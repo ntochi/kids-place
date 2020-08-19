@@ -2,5 +2,5 @@ node_modules
 
 package-lock.json
 
-/public/stylesheets/tailwind.css
+public/stylesheets/tailwind.css
 
