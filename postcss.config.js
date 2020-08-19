@@ -1,20 +1,22 @@
-const purgecss = require('@fullhuman/postcss-purgecss');
-const cssnano = require('cssnano');
+const purgecss = require('@fullhuman/postcss-purgecss')
+const cssnano = require('cssnano')
 
 module.exports = {
-    plugins: [
-        require('tailwindcss'),
-
-        process.env.NODE_ENV === 'production' ? require('autoprefixer') : null,
-
-        process.env.NODE_ENV === 'production'
-            ? cssnano({ preset: 'default' })
-            : null,
-        purgecss({
-            content: ['app.js', 'seeds.js'],
-            css: ['./public/stylesheets/app.css', './public/stylesheets/tailwind.css'],
-            defaultExtractor: content => content.match(/[A-z0-9-:\/]+/g) || []
-            
-        })
-    ]
+  plugins: [
+    require('tailwindcss'),
+    require('autoprefixer'),
+    cssnano({
+      preset: 'default'
+    }),
+    purgecss({
+        content: [
+            './views/**/*.ejs',
+            './views/comments/**/*.ejs',
+            './views/partials/**/*.ejs',
+            './views/products/**/*.ejs',
+        ], 
+        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
+  ]
 }
+
