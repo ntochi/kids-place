@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+
+    <div class="bg-white w-full max-w-sm rounded-lg shadow-lg overflow-hidden mx-auto mt-5">
+        <div class="py-4 px-6">
+            <h2 class="text-center font-bold text-gray-700 text-2xl">Welcome Back!</h2>
+
+            <div class="mt-1 text-center text-gray-600">Log into your account</div>
+
+            <form action="/login" method="post">
+                <div class="mt-4 w-full">
+                    <input class="w-full mt-2 py-2 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" name="username" type="email" placeholder="Email Address" aria-label="Email Address" required>
+                </div>
+
+                <div class="mt-4 w-full">
+                    <input class="w-full mt-2 py-2 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" name="password" type="password" placeholder="Password" aria-label="Password" required>
+                </div>
+
+                <div class="flex justify-between items-center mt-6">
+                    <a href="#" class="text-gray-600 text-sm hover:text-gray-500">Forget Password?</a>
+
+                    <button class="py-2 px-3 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="flex items-center justify-center py-4 bg-gray-100 text-center">
+            <span class="text-gray-600 text-sm">Do not have an account? </span>
+            
+            <a href="/register" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Register</a>
+        </div>
+    </div>
+
+<%- include('../partials/footer') %>
