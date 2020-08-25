@@ -10,7 +10,7 @@ router.get("/", function (req, res){
 
 // User profile route
 router.get("/user", function (req, res){
-    res.render("user/user");
+    res.render("user/user", {currentUser: req.user});
 });
 
 // Register route
@@ -47,9 +47,6 @@ router.get("/logout", function(req, res){
 	req.logout();
 	res.redirect("/login");
 });
-
-
-
 
 
 module.exports = router;

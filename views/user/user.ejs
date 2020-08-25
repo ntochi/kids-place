@@ -4,7 +4,19 @@
         <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1597113117918-eb40fe0b84e7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="avatar">
         
         <div class="py-3 text-center">
-            <h2 class="text-center font-bold text-gray-700 text-2xl">Welcome Back Name!</h2>
+            <% if (currentUser) { %>
+    
+                <h2 class="text-center font-bold text-gray-700 text-2xl">
+                    Hello <%= currentUser.username %>
+                </h2>
+
+            <% } else { %>
+
+                <h2 class="text-center font-bold text-gray-700 text-2xl">
+                    Hi there!
+                </h2>
+                
+            <% } %> 
         </div>
 
         
@@ -20,11 +32,13 @@
                     <h1 class="mt-4 font-semibold text-xl text-gray-800">Login & Security</h1>
                     
                     <div class="mt-1">
-                        <a href="/login" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Login</a>
-
-                        <a href="/logout" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Sign Out</a>    
-                        
-                        <a href="/register" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Register</a>    
+                        <% if (!currentUser){ %> 
+                            <a href="/login" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Login</a>
+                            
+                            <a href="/register" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Register</a>    
+                        <% } else { %> 
+                            <a href="/logout" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Sign Out</a>    
+                        <% } %> 
                     </div>
                 </div>
             </div>
