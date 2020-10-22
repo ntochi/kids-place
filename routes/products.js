@@ -10,7 +10,7 @@ router.get("/shop", function (req, res){
         if (err) {
             console.log(err);
         } else {
-			res.render("index", {product: allProducts});
+			res.render("products/index", {product: allProducts});
         }
     })
 });
@@ -22,21 +22,9 @@ router.get("/shop/:id", function (req, res){
         if (err) {
             console.log(err);
         } else {
-            res.render("show", {product: foundProduct});
+            res.render("products/show", {product: foundProduct});
         }
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;

@@ -4,7 +4,7 @@
   "description": "A simple online store is that gives users the capability of selecting a product to purchase, viewing purchase information, adding it to an online shopping cart, and finally, purchasing the products in the shopping cart.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:css": "postcss public/stylesheets/app.css -o public/stylesheets/tailwind.css"
   },
@@ -22,7 +22,9 @@
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "autoprefixer": "^9.8.5",
     "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
     "cssnano": "^4.1.10",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
@@ -34,6 +36,7 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "tailwindcss-textshadow": "^2.1.3"
   }
 }

@@ -11,7 +11,7 @@
 
                 <div class="w-56 md:w-64 bg-white -mt-10 shadow-lg rounded-lg overflow-hidden">
 
-                    <a class="block py-2 text-center font-bold capitalize tracking-wide text-gray-800 hover:text-gray-600 hover:underline" href="shop/<%= product._id %> ">
+                    <a class="block py-2 text-center font-bold capitalize tracking-wide text-gray-800 hover:text-red-500 hover:underline" href="shop/<%= product._id %> ">
                         <%= product.title %>
                     </a>
 
@@ -20,8 +20,8 @@
                             <%= product.price %> 
                         </span>
 
-                        <button class=" bg-gray-800 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-gray-700">
-                            Add to cart
+                        <button class=" bg-gray-800 text-xs text-white px-2 py-1 font-semibold rounded uppercase hover:bg-red-500">
+                            <a href="/add-to-cart/<%= product._id %>">Add to cart</a>
                         </button>
                     </div>
                 </div>
@@ -38,19 +38,19 @@
             </a>
         </li>
 
-        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
             <a href="#" class="font-bold">1</a>
         </li>
 
-        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
             <a href="#" class="font-bold">2</a>
         </li>
 
-        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
             <a href="#" class="font-bold">3</a>
         </li>
         
-        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-gray-700 hover:text-gray-200 rounded-lg">
+        <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-red-500 hover:text-gray-200 rounded-lg">
             <a href="#" class="flex items-center font-bold">
                 <span class="mx-1">Next</span>
             </a>

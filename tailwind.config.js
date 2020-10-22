@@ -1,8 +1,9 @@
 module.exports = {
-  purge: [],
-  theme: {
-    extend: {},
-  },
-  variants: {},
-  plugins: [],
+	theme: {
+	  extend: {}
+	},
+	variants: {},
+	plugins: [
+		require('tailwindcss-textshadow')
+	]
 }
