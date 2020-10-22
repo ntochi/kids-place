@@ -61,7 +61,6 @@ store.on("error", function (e) {
 
 const sessionConfig = {
 	store,
-	name = 'session',
 	secret,
 	resave: false,
 	saveUninitialized: false
@@ -83,6 +82,6 @@ app.use(shoppingCartRoutes);
 
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => 
+app.listen(port, () => {
 	console.log(`Dorema's Place Serving on port ${port}`)
-);
+});

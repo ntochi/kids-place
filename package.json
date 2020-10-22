@@ -4,8 +4,8 @@
   "description": "A simple online store is that gives users the capability of selecting a product to purchase, viewing purchase information, adding it to an online shopping cart, and finally, purchasing the products in the shopping cart.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
     "build:css": "postcss public/stylesheets/app.css -o public/stylesheets/tailwind.css"
   },
   "repository": {
