@@ -1,4 +1,4 @@
-# Dorema's Place
+# Kid's Place
 
 A full-stack eCommerce app that gives users the ability to select a product to purchase, view purchase information, add a product to the shopping cart, and finally, purchase the products in the shopping cart.
 
