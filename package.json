@@ -1,5 +1,5 @@
 {
-  "name": "doremas-place",
+  "name": "kids-place",
   "version": "1.0.0",
   "description": "A simple online store is that gives users the capability of selecting a product to purchase, viewing purchase information, adding it to an online shopping cart, and finally, purchasing the products in the shopping cart.",
   "main": "app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ntochi/doremas-place.git"
+    "url": "https://github.com/ntochi/kids-place.git"
   },
   "author": "Nancy Tochi O.",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ntochi/doremas-place/issues"
+    "url": "https://github.com/ntochi/kids-place/issues"
   },
-  "homepage": "https://doremas-place.herokuapp.com/",
+  "homepage": "https://kids-place.herokuapp.com/",
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "autoprefixer": "^9.8.6",
