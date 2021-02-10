@@ -82,5 +82,5 @@ app.use(shoppingCartRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-	console.log(`Dorema's Place Serving on port ${port}`)
+	console.log(`Kid's Place Serving on port ${port}`)
 });
