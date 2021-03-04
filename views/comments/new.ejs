@@ -1,9 +1,9 @@
 <%- include('../partials/header') %>
 
 
-<div class="flex max-w-lg mx-auto my-4">
-    <form action="/shop/<%= product._id %>/comments" method="POST" class="w-full bg-white px-3 pt-3">
-        <h4 class="text-xl font-bold text-center">Leave a review</h4>
+<div class="flex max-w-lg mx-auto my-32">
+    <form action="/shop/<%= product._id %>/comments" method="POST" class="w-full bg-white px-3">
+        <h4 class="text-2xl md:text-3xl font-bold text-center mb-6">Leave a review</h4>
 
         <div class="border-b border-red-300 py-2">
             <input class="w-full appearance-none bg-transparent border-none focus:outline-none" name="comment[author]" type="text" placeholder="Full name" aria-label="Full name" required>

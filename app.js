@@ -16,14 +16,12 @@ const app        = express();
 const Product = require("./models/product");
 const Comment = require("./models/comment");
 const User = require("./models/user");
-const Cart = require("./models/cart");
 const seedDB = require('./models/seeds');
 
 // Import routes
 const indexRoutes = require("./routes/index");
 const productRoutes = require("./routes/products");
 const commentRoutes = require("./routes/comments");
-const shoppingCartRoutes = require("./routes/shopping-cart");
 
 // MongoDB configuration
 const dbUrl =  process.env.DB_URL || "mongodb://localhost:27017/doremas_place";
@@ -77,7 +75,6 @@ passport.deserializeUser(User.deserializeUser());
 app.use(indexRoutes);
 app.use(productRoutes);
 app.use(commentRoutes);
-app.use(shoppingCartRoutes);
 
 
 const port = process.env.PORT || 3000;

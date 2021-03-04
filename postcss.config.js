@@ -8,15 +8,6 @@ module.exports = {
     cssnano({
       preset: 'default'
     }),
-    purgecss({
-        content: [
-            './views/**/*.ejs',
-            './views/comments/**/*.ejs',
-            './views/partials/**/*.ejs',
-            './views/products/**/*.ejs',
-        ], 
-        defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
-    })
   ]
 }
 
