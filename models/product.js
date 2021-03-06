@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema({
 });
 
 //Delete comments with products when destroying
-productSchema.pre('remove', async function() {
+productSchema.pre('remove', async () => {
 	await Comment.remove({
 		_id: {
 			$in: this.comments
