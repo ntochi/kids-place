@@ -3,13 +3,14 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 // Import modules
-const bodyParser = require("body-parser");
-const mongoose 	 = require("mongoose");
-const session    = require("express-session");
+const bodyParser = require('body-parser');
+const mongoose 	 = require('mongoose');
+const session    = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const passport   = require("passport");
-const localStrategy = require ("passport-local");
-const express    = require("express");
+const { check } = require('express-validator');
+const passport   = require('passport');
+const localStrategy = require ('passport-local');
+const express    = require('express');
 const app        = express();
 
 // Import models
@@ -22,6 +23,7 @@ const seedDB = require('./models/seeds');
 const indexRoutes = require("./routes/index");
 const productRoutes = require("./routes/products");
 const commentRoutes = require("./routes/comments");
+const cartRoutes = require("./routes/carts");
 
 // MongoDB configuration
 const dbUrl =  process.env.DB_URL || "mongodb://localhost:27017/doremas_place";
@@ -70,11 +72,11 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 // Routes configuration
 app.use(indexRoutes);
 app.use(productRoutes);
 app.use(commentRoutes);
+app.use(cartRoutes);
 
 
 const port = process.env.PORT || 3000;

@@ -1,48 +1,55 @@
 const express = require("express");
 const router = express.Router();
+const { check } = require('express-validator');
 const passport = require("passport");
 const User = require('../models/user');
 
-// Landing route
-router.get("/", function (req, res){
-    res.render("landing");
+// Landing page route
+router.get('/', (req, res) => {
+    res.render('landing');
 });
 
 // User profile route
-router.get("/user", function (req, res){
-    res.render("user/user", {currentUser: req.user});
+router.get('/user', (req, res) => {
+    res.render('user/user', { currentUser: req.user });
 });
 
 // Register route
-router.get("/register", function (req, res){
-    res.render("user/register");
+router.get('/register', (req, res) => {
+    res.render('user/register');
 });
 
 // Handle register logic
-router.post("/register", function(req, res){
-    var newUser = new User({username: req.body.username});
-    User.register(newUser, req.body.password, function(err, newUser){
+router.post('/register', check('password').trim(), (req, res) => {
+    var newUser = new User({ username: req.body.username });
+
+    User.register(newUser, req.body.password, (err, newUser) => {
         if(err){
             console.log(err);
-            res.redirect("/register");
-         }
-        passport.authenticate("local")(req, res, function(){
-            res.redirect("/user");
+            res.redirect('/register');
+        }
+        passport.authenticate('local')(req, res, () => {
+            res.redirect('/user');
         });
-    });});
+    });
+});
 
 // Login route
-router.get("/login", function (req, res){
-    res.render("user/login");
+router.get('/login', (req, res) => {
+    res.render('user/login');
 });
 
 // Handle login logic
-router.post("/login", passport.authenticate("local", {successRedirect: "/user", failureRedirect: "/login"}), function(req, res){
+router.post('/login', passport.authenticate('local', 
+    { 
+        successRedirect: '/user', 
+        failureRedirect: '/login'
+    }), (req, res) => {
 
 });
 
 //Logout route
-router.get("/logout", function(req, res){
+router.get('/logout', (req, res) => {
 	//destroy all the user data in the session
 	req.logout();
 	res.redirect("/login");
