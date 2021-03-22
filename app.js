@@ -3,9 +3,9 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 // Import modules
-const bodyParser = require('body-parser');
 const mongoose 	 = require('mongoose');
 const session    = require('express-session');
+const flash    = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 const { check } = require('express-validator');
 const passport   = require('passport');
@@ -15,6 +15,7 @@ const app        = express();
 
 // Import models
 const Product = require("./models/product");
+const Cart = require("./models/cart");
 const Comment = require("./models/comment");
 const User = require("./models/user");
 const seedDB = require('./models/seeds');
@@ -42,7 +43,7 @@ mongoose.connect(dbUrl, {
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 seedDB();
 
 
@@ -79,7 +80,7 @@ app.use(commentRoutes);
 app.use(cartRoutes);
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3007;
 app.listen(port, () => {
 	console.log(`Kid's Place Serving on port ${port}`)
 });

@@ -24,11 +24,13 @@ router.post('/register', check('password').trim(), (req, res) => {
     var newUser = new User({ username: req.body.username });
 
     User.register(newUser, req.body.password, (err, newUser) => {
-        if(err){
+        if (err) {
+            // req.flash('error', err.message);
             console.log(err);
             res.redirect('/register');
         }
-        passport.authenticate('local')(req, res, () => {
+        passport.authenticate('local') (req, res, () => {
+            // req.flash('success', 'Kids Place!')
             res.redirect('/user');
         });
     });
@@ -52,6 +54,7 @@ router.post('/login', passport.authenticate('local',
 router.get('/logout', (req, res) => {
 	//destroy all the user data in the session
 	req.logout();
+    req.flash('success', 'You are now logged out')
 	res.redirect("/login");
 });
 
