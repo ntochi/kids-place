@@ -1,22 +1,32 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="bg-white w-full max-w-sm rounded-lg shadow-lg overflow-hidden mx-auto mt-5">
+<div class="bg-white w-full max-w-md rounded-lg shadow-lg overflow-hidden mx-auto mt-5">
     <div class="py-4 px-6">
         <h2 class="text-center font-bold text-gray-700 text-2xl">Create an account</h2>
 
         <form action="/register" method="post">
+            <!-- Username -->
             <div class="mt-4 w-full">
-                <input class="w-full mt-2 py-2 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" name="username" type="email" placeholder="Email Address" aria-label="username" required>
+                <label class="mb-2 uppercase tracking-wide font-medium text-md text-grey-800" for="username">Username</label>
+                <input class="w-full mt-2 py-2 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" type="text" id="username" name="username" required>
             </div>
 
+            <!-- Email -->
             <div class="mt-4 w-full">
-                <input class="w-full mt-2 py-2 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"  name="password" type="password" placeholder="Password" aria-label="Password" required>
+                <label class="mb-2 uppercase tracking-wide font-medium text-md text-grey-800" for="email">Email</label>
+                <input class="w-full mt-2 py-2 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mt-4 w-full">
+                <label class="mb-2 uppercase tracking-wide font-medium text-md text-grey-800" for="username">Password</label>
+                <input class="w-full mt-2 py-2 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" type="password" id="password" name="password" required>
             </div>
 
             <div class="flex justify-between items-center mt-6">
-                <a href="#" class="text-gray-600 text-sm hover:text-gray-500">Forget Password?</a>
+                <a href="#" class="text-gray-600 text-md hover:text-gray-500">Forget Password?</a>
 
-                <button class="py-2 px-4 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none">
+                <button class="py-2 px-8 bg-green-600 text-white rounded-full focus:outline-none">
                     Register
                 </button>
             </div>
@@ -24,9 +34,9 @@
     </div>
 
     <div class="flex items-center justify-center py-4 bg-gray-100 text-center">
-        <span class="text-gray-600 text-sm">Already have an account? </span>
+        <span class="text-gray-600 text-md">Already have an account? </span>
         
-        <a href="/login" class="text-blue-600 font-bold mx-2 text-sm hover:text-blue-500">Login</a>
+        <a href="/login" class="text-blue-600 font-bold mx-2 text-md hover:text-blue-500">Login</a>
     </div>
 </div>
 

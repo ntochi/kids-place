@@ -86,7 +86,7 @@
     </div>    
 </div>
 
-<!-- Comments -->
+<!-- Comments section starts here -->
 <div class="lg:flex-col lg:max-w-5xl mx-auto my-5 px-5 items-start shadow-md rounded-lg bg-gray-200">
     <div class="pt-2">
         <h2 class="font-bold text-2xl">Reviews</h2>
@@ -100,10 +100,10 @@
     <hr class="border-b border-none h-3 m-0 shadow-lg">
 
     <!-- Display comments -->
-    <%  product.comments.forEach(comment => { %> 
+    <%  for(let comment of product.comments) { %> 
         <div class="py-4">
             <p class="flex items-baseline">
-                <span class="font-bold"><%= comment.author %> </span>
+                <span class="font-bold"><%= comment.author.username %> </span>
                 <span class="ml-2 text-green-600 text-xs">Verified Buyer</span>
             </p>
 
@@ -122,6 +122,12 @@
                 </p>
             </div>
 
+            <% if ( currentUser && comment.author.equals(currentUser._id)) { %>
+                <form action="/shop/<%=product._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                    <button class="mt-2 px-3 py-2 text-white bg-red-700 font-bold capitalize text-sm outline-none focus:outline-none">Delete</button>
+                </form>
+            <% } %>
+
             <div class="flex items-center justify-between mt-4 text-sm text-gray-600 fill-current">
                 <div class="flex items-center">
                     <span>Was this review helplful?</span>
@@ -136,9 +142,8 @@
                 </div>
             </div>
         </div>
-    <% }); %>
-
+    <% } %>
 </div>
-
+<!-- Comments section ends here -->
 
 <%- include('../partials/footer') %>

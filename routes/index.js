@@ -20,20 +20,21 @@ router.get('/register', (req, res) => {
 });
 
 // Handle register logic
-router.post('/register', check('password').trim(), (req, res) => {
-    var newUser = new User({ username: req.body.username });
-
-    User.register(newUser, req.body.password, (err, newUser) => {
-        if (err) {
-            // req.flash('error', err.message);
-            console.log(err);
-            res.redirect('/register');
-        }
-        passport.authenticate('local') (req, res, () => {
-            // req.flash('success', 'Kids Place!')
-            res.redirect('/user');
-        });
-    });
+router.post('/register', check('password').trim(), async (req, res, next) => {
+    try {
+        const { username, password } = req.body;
+        console.log(req.body);
+        const user = new User({ username });
+        const registeredUser = await User.register(user, password);
+        // Login user after registering
+        req.login(registeredUser, err => {
+            if (err) return next(err);
+            res.redirect('/shop');
+        })
+    } catch (err) {
+        console.log(err);
+        res.redirect('register');
+    }
 });
 
 // Login route
@@ -42,19 +43,14 @@ router.get('/login', (req, res) => {
 });
 
 // Handle login logic
-router.post('/login', passport.authenticate('local', 
-    { 
-        successRedirect: '/user', 
-        failureRedirect: '/login'
-    }), (req, res) => {
-
-});
+router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
+    const redirectUrl = req.session.returnTo || '/user';
+    delete req.session.returnTo;
+    res.redirect(redirectUrl);});
 
 //Logout route
 router.get('/logout', (req, res) => {
-	//destroy all the user data in the session
 	req.logout();
-    req.flash('success', 'You are now logged out')
 	res.redirect("/login");
 });
 
