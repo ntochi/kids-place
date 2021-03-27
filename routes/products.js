@@ -27,7 +27,7 @@ router.get("/shop/:id", async (req, res) => {
         console.log(product);
 
         if (!product) {
-            // req.flash('error', 'Cannot find that product!');
+            req.flash('error', 'Cannot find that product!');
             return res.redirect('/shop');
         }
 

@@ -30,7 +30,7 @@ router.post("/shop/:id/comments", isLoggedIn, async (req, res) => {
         product.comments.push(comment);
         await comment.save();
         await product.save();
-        // req.flash('success', 'Created new review!');
+        req.flash('success', 'Created new review!');
         res.redirect(`/shop/${product._id}`);
     } catch (err) {
         console.log(`There was an error: ${err}`);
@@ -43,7 +43,7 @@ router.delete('/shop/:id/comments/:commentId', isLoggedIn, isCommentAuthor, asyn
         const { id, commentId } = req.params;
         await Product.findByIdAndUpdate(id, { $pull: { comments: commentId } });
         await Comment.findByIdAndDelete(commentId);
-        // req.flash('success', 'Successfully deleted review')
+        req.flash('success', 'Successfully deleted review')
         res.redirect(`/shop/${id}`);
     } catch (err) {
         console.log(`There was an error: ${err}`);

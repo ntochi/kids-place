@@ -29,10 +29,11 @@ router.post('/register', check('password').trim(), async (req, res, next) => {
         // Login user after registering
         req.login(registeredUser, err => {
             if (err) return next(err);
+            req.flash('success', `Welcome to Kid's Place!`);
             res.redirect('/shop');
         })
     } catch (err) {
-        console.log(err);
+        req.flash('error', e.message); 
         res.redirect('register');
     }
 });
@@ -44,6 +45,7 @@ router.get('/login', (req, res) => {
 
 // Handle login logic
 router.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
+    req.flash('success', 'Welcome Back!');
     const redirectUrl = req.session.returnTo || '/user';
     delete req.session.returnTo;
     res.redirect(redirectUrl);});
@@ -51,6 +53,7 @@ router.post('/login', passport.authenticate('local', { failureFlash: true, failu
 //Logout route
 router.get('/logout', (req, res) => {
 	req.logout();
+    req.flash('success', "Goodbye!");
 	res.redirect("/login");
 });
 

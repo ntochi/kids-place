@@ -7,20 +7,20 @@ const express    = require('express');
 const path = require('path');
 const mongoose 	 = require('mongoose');
 const session    = require('express-session');
+const flash = require('connect-flash');
 const methodOverride = require('method-override');
-// const flash    = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 const { check } = require('express-validator');
 const passport   = require('passport');
 const localStrategy = require ('passport-local');
-const app        = express();
+const app = express();
 
 // Import models
 const Product = require("./models/product");
 const Cart = require("./models/cart");
 const Comment = require("./models/comment");
 const User = require("./models/user");
-// const seedDB = require('./models/seeds');
+const seedDB = require('./seeds');
 
 // Import routes
 const indexRoutes = require("./routes/index");
@@ -29,8 +29,10 @@ const commentRoutes = require("./routes/comments");
 const cartRoutes = require("./routes/carts");
 
 // MongoDB configuration
-const dbUrl = "mongodb://localhost:27017/kids-place";
+const dbUrl = process.env.DB_URL;
 
+// process.env.DB_URL
+// mongodb://localhost:27017/kids-place
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true, 
 	useCreateIndex: true, 
@@ -47,7 +49,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-
+seedDB();
 
 const secret = process.env.SECRET || 'Cinnamon buns';
 
@@ -70,19 +72,19 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
-
+// Flash & passport configuration
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 app.use((req, res, next) => {
     console.log(req.session)
     res.locals.currentUser = req.user;
-    // res.locals.success = req.flash('success');
-    // res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     next();
 })
 
