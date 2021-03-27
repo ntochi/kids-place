@@ -85,7 +85,7 @@ const productData = [
 ]
 
 // Compile seed data into a function
-const seedDB = async () => {
+async function seedDB () {
     await Product.deleteMany({});
     console.log("removed products!");
     
@@ -96,8 +96,5 @@ const seedDB = async () => {
     };
 }
 
-
-seedDB().then(() => {
-    mongoose.connection.close();
-})
+module.exports = seedDB;
 
