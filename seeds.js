@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('./models/product');
 
-const dbUrl = 'mongodb://localhost:27017/kids-place';
-// process.env.DB_URL
-// mongodb://localhost:27017/kids-place
+const dbUrl = process.env.DB_URL;
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
@@ -100,5 +98,6 @@ async function seedDB () {
     };
 }
 
-module.exports = seedDB;
-
+seedDB().then(() => {
+    mongoose.connection.close();
+})

@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/ntochi/kids-place/issues"
   },
-  "homepage": "https://kids-place.herokuapp.com/",
+  "homepage": "https://thawing-depths-14356.herokuapp.com/",
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
     "autoprefixer": "^9.8.6",

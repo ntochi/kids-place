@@ -20,7 +20,6 @@ const Product = require("./models/product");
 const Cart = require("./models/cart");
 const Comment = require("./models/comment");
 const User = require("./models/user");
-const seedDB = require('./seeds');
 
 // Import routes
 const indexRoutes = require("./routes/index");
@@ -29,9 +28,7 @@ const commentRoutes = require("./routes/comments");
 const cartRoutes = require("./routes/carts");
 
 // MongoDB configuration
-const dbUrl = 'mongodb://localhost:27017/kids-place';
-// process.env.DB_URL
-// mongodb://localhost:27017/kids-place
+const dbUrl = process.env.DB_URL;
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true, 
@@ -49,7 +46,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
-seedDB();
 
 // Session & MongoStore configuration
 const secret = process.env.SECRET || 'Cinnamon buns';
