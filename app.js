@@ -9,7 +9,7 @@ const mongoose 	 = require('mongoose');
 const session    = require('express-session');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
-const MongoStore = require('connect-mongo')(session);
+const MongoDBStore = require('connect-mongo')(session);
 const { check } = require('express-validator');
 const passport   = require('passport');
 const localStrategy = require ('passport-local');
@@ -29,10 +29,10 @@ const commentRoutes = require("./routes/comments");
 const cartRoutes = require("./routes/carts");
 
 // MongoDB configuration
-const dbUrl = process.env.DB_URL;
-
+const dbUrl = 'mongodb://localhost:27017/kids-place';
 // process.env.DB_URL
 // mongodb://localhost:27017/kids-place
+
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true, 
 	useCreateIndex: true, 
@@ -51,9 +51,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 seedDB();
 
+// Session & MongoStore configuration
 const secret = process.env.SECRET || 'Cinnamon buns';
-
-const store = new MongoStore({
+const store = new MongoDBStore({
 	url: dbUrl,
 	secret,
 	touchAfter: 24 * 60 * 60 // lazy session update time period in seconds
@@ -67,12 +67,18 @@ const sessionConfig = {
 	store,
 	secret,
 	resave: false,
-	saveUninitialized: false
+	saveUninitialized: false,
+	cookie: {
+        httpOnly: true,
+        // secure: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7
+    }
 };
 
 app.use(session(sessionConfig));
 
-// Flash & passport configuration
+// Flash & Passport configuration
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
