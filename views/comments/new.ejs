@@ -1,11 +1,11 @@
 <%- include('../partials/header') %>
 
 
-<div class="flex max-w-lg mx-auto my-32">
+<div class="flex max-w-lg mx-auto my-32 md:h-screen">
     <form action="/shop/<%= product._id %>/comments" method="POST" class="w-full bg-white px-3">
         <h4 class="text-2xl md:text-3xl font-bold text-center mb-6">Leave a review</h4>
 
-        <div class="border border-red-300 pt-4">
+        <div class="border border-red-300 p-4 h-40">
             <textarea class="w-full appearance-none bg-transparent border-none focus:outline-none" name="comment[text]" placeholder='Did you like your purchase?' required></textarea>
         </div>
 
