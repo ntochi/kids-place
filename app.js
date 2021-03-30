@@ -25,10 +25,10 @@ const User = require("./models/user");
 const indexRoutes = require("./routes/index");
 const productRoutes = require("./routes/products");
 const commentRoutes = require("./routes/comments");
-const cartRoutes = require("./routes/carts");
+// const cartRoutes = require("./routes/carts");
 
 // MongoDB configuration
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL ;
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true, 
@@ -94,7 +94,7 @@ app.use((req, res, next) => {
 app.use(indexRoutes);
 app.use(productRoutes);
 app.use(commentRoutes);
-app.use(cartRoutes);
+// app.use(cartRoutes);
 
 
 const port = process.env.PORT || 3008;
