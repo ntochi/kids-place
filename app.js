@@ -28,10 +28,14 @@ const commentRoutes = require("./routes/comments");
 // const cartRoutes = require("./routes/carts");
 
 // MongoDB configuration
+<<<<<<< HEAD
 const dbUrl = process.env.DB_URL;
 
 // !Remote Database URL 
 // 'mongodb://localhost:27017/kids-place'
+=======
+const dbUrl = 'mongodb://localhost:27017/kids-place' || process.env.DB_URL;
+>>>>>>> cbda9e06fe2c78c1f86c7735b8376aa2455736b0
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true, 
