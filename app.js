@@ -28,7 +28,7 @@ const commentRoutes = require("./routes/comments");
 // const cartRoutes = require("./routes/carts");
 
 // MongoDB configuration
-const dbUrl = process.env.DB_URL ;
+const dbUrl = 'mongodb://localhost:27017/kids-place' || process.env.DB_URL;
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true, 

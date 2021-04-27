@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Product = require('./models/product');
 
-const dbUrl = process.env.DB_URL;
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/kids-place';
 
 mongoose.connect(dbUrl, {
     useNewUrlParser: true,
