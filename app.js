@@ -31,7 +31,7 @@ const commentRoutes = require("./routes/comments");
 const dbUrl = process.env.DB_URL;
 
 //! Remote Database URL 
-// 'mongodb://localhost:27017/kids-place'
+// const dbUrl = 'mongodb://0.0.0.0:27017/kids-place';
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true, 
@@ -40,8 +40,9 @@ mongoose.connect(dbUrl, {
 	useFindAndModify: false
 }).then(() => {
 	console.log("Database Connected");
-}).catch(err => {
-	console.log('ERROR:', err.message);
+
+}).catch(error => {
+	console.log('ERROR:', error.message);
 });
 
 
@@ -52,6 +53,7 @@ app.use(methodOverride('_method'));
 
 // Session & MongoStore configuration
 const secret = process.env.SECRET || 'Cinnamon buns';
+
 const store = new MongoDBStore({
 	url: dbUrl,
 	secret,
@@ -102,5 +104,5 @@ app.use(commentRoutes);
 
 const port = process.env.PORT || 3008;
 app.listen(port, () => {
-	console.log(`Kid's Place Serving on port ${port}`)
+	console.log(`Kid's Place app serving on port ${port}`)
 });
