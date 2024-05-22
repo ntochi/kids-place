@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
 const Product = require('./models/product');
 
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/kids-place';
+const dbUrl = process.env.DB_URL || 'mongodb://0.0.0.0:27017/kids-place';
 
 mongoose.connect(dbUrl, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error:"));
+
 db.once("open", () => {
-    console.log("Database connected (Seed)");
+  console.log("Database connected (Seed)");
 });
 
 
@@ -92,9 +93,9 @@ async function seedDB () {
     console.log("removed products!");
     
     for (const product of productData) {
-        const newProduct = await Product.create(product);
-        await newProduct.save();
-        console.log("added a product!")
+      const newProduct = await Product.create(product);
+      await newProduct.save();
+      console.log("added a product!")
     };
 }
 

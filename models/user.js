@@ -3,14 +3,14 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = new Schema({
-    email: {
-        type: String,
-        unique: true
-    }
+  email: {
+    type: String,
+    unique: true
+  }
 });
 
 
-// Adds auth methods to user model
+// Adds authentication methods to user model
 userSchema.plugin(passportLocalMongoose);
 
 // Compile into a model
