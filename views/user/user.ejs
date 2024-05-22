@@ -22,25 +22,25 @@
         
         <div class="container px-6 pb-8">
             <div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+              <div class="text-center">    
+                <h1 class="mt-2 font-semibold text-2xl text-gray-800">Login & Security</h1>
+                
+                <div class="mt-4">
+                    <% if (!currentUser){ %> 
+                        <a href="/login" class="text-blue-600 font-bold mx-2 text-md hover:underline">Login</a>
+                        
+                        <a href="/register" class="text-blue-600 font-bold mx-2 text-md hover:underline">Register</a>    
+                    <% } else { %> 
+                        <a href="/logout" class="text-blue-600 font-bold mx-2 text-md hover:underline">Sign Out</a>    
+                    <% } %> 
+                </div>
+              </div>
+
                 <div class="text-center">    
                     <h1 class="mt-2 font-semibold text-2xl text-gray-800">Your Orders</h1>
     
                     <div class="mt-4">
                         <a href="/cart" class="text-blue-600 font-bold mx-2 text-md hover:underline">View Cart</a>
-                    </div>
-                </div>
-    
-                <div class="text-center">    
-                    <h1 class="mt-2 font-semibold text-2xl text-gray-800">Login & Security</h1>
-                    
-                    <div class="mt-4">
-                        <% if (!currentUser){ %> 
-                            <a href="/login" class="text-blue-600 font-bold mx-2 text-md hover:underline">Login</a>
-                            
-                            <a href="/register" class="text-blue-600 font-bold mx-2 text-md hover:underline">Register</a>    
-                        <% } else { %> 
-                            <a href="/logout" class="text-blue-600 font-bold mx-2 text-md hover:underline">Sign Out</a>    
-                        <% } %> 
                     </div>
                 </div>
             </div>
